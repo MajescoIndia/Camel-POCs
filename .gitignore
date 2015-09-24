@@ -1,0 +1,11 @@
+.settings
+target
+.project
+.classpath
+.idea/
+*.iml
+LOG_PATH_IS_UNDEFINED/
+rest-server/target/
+camel-rest-poc/target/
+rest-server/.idea/
+camel-rest-poc/.idea/

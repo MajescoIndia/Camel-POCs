@@ -1,0 +1,32 @@
+<xsd:schema targetNamespace="http://com.happyshopping.userdetails"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://com.happyshopping.userdetails">
+
+    <xsd:element name="userDetails" type="userDetails"/>
+
+    <xsd:complexType name="userDetails">
+        <xsd:sequence>
+            <xsd:element name="salutation" type="xsd:string"/>
+            <xsd:element name="firstName" type="xsd:string"/>
+            <xsd:element name="lastName" type="xsd:string"/>
+            <xsd:element name="middleName" type="xsd:string"/>
+            <xsd:element name="userId" type="xsd:string"/>
+            <xsd:element name="userName" type="xsd:string"/>
+            <xsd:element name="email" type="xsd:string"/>
+            <xsd:element name="phone" type="xsd:string"/>
+            <xsd:element name="gender" type="xsd:string"/>
+            <xsd:element name="dob" type="xsd:string"/>
+            <xsd:element name="address" type="address"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="address">
+        <xsd:sequence>
+            <xsd:element name="addressLine" type="xsd:string"/>
+            <xsd:element name="city" type="xsd:string"/>
+            <xsd:element name="state" type="xsd:string"/>
+            <xsd:element name="country" type="xsd:string"/>
+            <xsd:element name="zip" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

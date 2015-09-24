@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:cxf="http://camel.apache.org/schema/cxf"
+        xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+        xmlns:jaxws="http://cxf.apache.org/jaxws"
+        xmlns:util="http://www.springframework.org/schema/util"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+                            http://www.springframework.org/schema/beans/spring-beans.xsd
+                            http://camel.apache.org/schema/cxf
+                            http://camel.apache.org/schema/cxf/camel-cxf.xsd
+                            http://cxf.apache.org/jaxrs
+                            http://cxf.apache.org/schemas/jaxrs.xsd
+                            http://cxf.apache.org/jaxws
+                            http://cxf.apache.org/schemas/jaxws.xsd
+                            http://www.springframework.org/schema/util
+                            http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean id="jacksonJaxbJsonProvider" class="com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider"/>
+    <bean id="validationExceptionMapper" class="com.majesco.camel.exception.CxfRestExceptionMapper"/>
+
+    <bean id="requestValidationInterceptor" class="org.apache.cxf.jaxrs.validation.JAXRSBeanValidationInInterceptor"/>
+    <util:list id="requestValidationInterceptors" value-type="java.util.List">
+        <ref bean="requestValidationInterceptor"/>
+    </util:list>
+
+    <bean id="getUserResource" class="com.majesco.camel.rest.GetUserEndpoint"/>
+    <cxf:rsServer id="getUserRESTServer" address="${cxf.rest.api.base.url}/user/get">
+        <cxf:serviceBeans>
+            <ref bean="getUserResource"/>
+        </cxf:serviceBeans>
+        <cxf:providers>
+            <ref bean="jacksonJaxbJsonProvider"/>
+            <ref bean="validationExceptionMapper"/>
+        </cxf:providers>
+    </cxf:rsServer>
+
+    <bean id="saveUserResource" class="com.majesco.camel.rest.SaveUserEndpoint"/>
+    <cxf:rsServer id="saveUserRESTServer" address="${cxf.rest.api.base.url}/user/save">
+        <cxf:serviceBeans>
+            <ref bean="saveUserResource"/>
+        </cxf:serviceBeans>
+        <cxf:providers>
+            <ref bean="jacksonJaxbJsonProvider"/>
+            <ref bean="validationExceptionMapper"/>
+        </cxf:providers>
+    </cxf:rsServer>
+
+    </beans>
