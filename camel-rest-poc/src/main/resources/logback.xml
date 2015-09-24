@@ -8,29 +8,11 @@
         </encoder>
     </appender>
 
-    <!-- GELF Appender -->
-    <!--<appender name="GELF" class="me.moocar.logbackgelf.GelfAppender">
-        <facility>camel-olp-adapter-service</facility>
-        <graylog2ServerHost>10.66.77.234</graylog2ServerHost>
-        <graylog2ServerPort>12201</graylog2ServerPort>
-        <useLoggerName>true</useLoggerName>
-        <useThreadName>true</useThreadName>
-        <useMarker>true</useMarker>
-        <graylog2ServerVersion>0.9.6</graylog2ServerVersion>
-        <chunkThreshold>1000</chunkThreshold>
-        <messagePattern>%m%rEx</messagePattern>
-        <shortMessagePattern>%.-100(%m%rEx)</shortMessagePattern>
-        <additionalField>ipAddress:_ip_address</additionalField>
-        <additionalField>requestId:_request_id</additionalField>
-        <staticAdditionalField>_node_name:www013</staticAdditionalField>
-        <includeFullMDC>true</includeFullMDC>
-    </appender>-->
-    
     <!-- Daily Rolling File Appender - Retain last 90 days archived logs -->
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${LOG_PATH}/happyshopping</file>
+        <file>${LOG_PATH}/camel-rest-poc.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${LOG_PATH}/happyshopping.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
+            <fileNamePattern>${LOG_PATH}/camel-rest-poc.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
             <maxHistory>90</maxHistory>
         </rollingPolicy>
         <encoder>
@@ -44,7 +26,7 @@
         <appender-ref ref="STDOUT"/>
     </logger>
 
-    <root level="INFO">
+    <root level="DEBUG">
         <appender-ref ref="STDOUT" />
         <appender-ref ref="FILE" />
     </root>

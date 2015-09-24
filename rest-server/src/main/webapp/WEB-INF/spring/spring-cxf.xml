@@ -45,5 +45,4 @@
             <ref bean="validationExceptionMapper"/>
         </cxf:providers>
     </cxf:rsServer>
-
     </beans>
