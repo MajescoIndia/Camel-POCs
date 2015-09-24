@@ -3,6 +3,7 @@ package com.majesco.camel.route;
 import org.apache.camel.Exchange;
 import org.apache.camel.LoggingLevel;
 import org.apache.camel.builder.RouteBuilder;
+import org.apache.camel.component.cxf.common.message.CxfConstants;
 import org.apache.camel.component.jackson.JacksonDataFormat;
 
 /**
@@ -20,11 +21,20 @@ public class TestRestWithHttpComponentRoute extends RouteBuilder {
 
         from("timer:callRestService?delay=10000")
                 .streamCaching()
+                .to("direct:cxfrsRESTcall");
+
+        /*from("direct:httpRESTcall")
+                .streamCaching()
                 .to("http://localhost:8080/rest-server/cxf/rest/user/get")
                 .log(LoggingLevel.INFO, "${headers}")
                 .log(LoggingLevel.INFO, "${body}")
                 .setHeader(Exchange.HTTP_METHOD, simple("POST"))
                 .setHeader(Exchange.CONTENT_TYPE, simple("application/json"))
-                .to("http://localhost:8080/rest-server/cxf/rest/user/save");
+                .to("http://localhost:8080/rest-server/cxf/rest/user/save");*/
+
+        from("direct:cxfrsRESTcall")
+                .setHeader(CxfConstants.OPERATION_NAME, simple("getUserDetails"))
+                .to("cxfrs:bean:getUserDetailsRESTClient")
+                .log(LoggingLevel.INFO, "===============================${body}");
     }
 }

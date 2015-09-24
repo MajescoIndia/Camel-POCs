@@ -16,23 +16,16 @@
                             http://www.springframework.org/schema/util
                             http://www.springframework.org/schema/util/spring-util.xsd">
 
-    <bean id="jacksonJaxbJsonProvider" class="com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider"/>
-    <bean id="validationExceptionMapper" class="com.happyshopping.services.exception.ValidationExceptionMapper"/>
+    <!--<bean id="jacksonJaxbJsonProvider" class="com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider"/>
+    <bean id="validationExceptionMapper" class="com.happyshopping.services.exception.ValidationExceptionMapper"/>-->
 
-    <bean id="requestValidationInterceptor" class="org.apache.cxf.jaxrs.validation.JAXRSBeanValidationInInterceptor"/>
+   <!-- <bean id="requestValidationInterceptor" class="org.apache.cxf.jaxrs.validation.JAXRSBeanValidationInInterceptor"/>
     <util:list id="requestValidationInterceptors" value-type="java.util.List">
         <ref bean="requestValidationInterceptor"/>
-    </util:list>
+    </util:list>-->
 
 
-    <bean id="saveUserResource" class="com.majesco.UserEndpoint"/>
-    <cxf:rsServer id="saveUserRESTServer" address="${cxf.rest.api.base.url}">
-        <cxf:serviceBeans>
-            <ref bean="saveUserResource"/>
-        </cxf:serviceBeans>
-        <cxf:providers>
-            <ref bean="jacksonJaxbJsonProvider"/>
-            <ref bean="validationExceptionMapper"/>
-        </cxf:providers>
-    </cxf:rsServer>
+    <cxf:rsClient id="getUserDetailsRESTClient"
+                  address="http://localhost:8080/rest-server/cxf/rest/user/get"
+                  serviceClass="com.majesco.camel.rest.GetUserEndpoint"/>
     </beans>
