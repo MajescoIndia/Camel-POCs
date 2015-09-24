@@ -24,6 +24,12 @@ public class UserService {
         return userDetails;
     }
 
+    /**
+     * Save user Details
+     *
+     * @param userDetails
+     * @return
+     */
     public UserDetails saveUserDetails(@Body UserDetails userDetails) {
         userDetails.setUserName("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
         return userDetails;

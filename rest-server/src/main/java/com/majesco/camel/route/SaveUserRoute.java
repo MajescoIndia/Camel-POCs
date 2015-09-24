@@ -5,6 +5,8 @@ import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.model.dataformat.JsonLibrary;
 
 /**
+ * Camel Route to serve save User REST endpoint
+ *
  * Created by biplab661592 on 9/23/2015.
  */
 public class SaveUserRoute extends RouteBuilder {

@@ -1,15 +1,13 @@
 package com.majesco.camel.route;
 
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.majesco.xsd.schema.rest.sample.UserDetails;
 import org.apache.camel.Exchange;
-import org.apache.camel.ExchangePattern;
 import org.apache.camel.LoggingLevel;
-import org.apache.camel.Processor;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.component.jackson.JacksonDataFormat;
 
 /**
+ * Camel route that triggers by a camel-timer component and consumes RESTful Services.
+ *
  * Created by biplab661592 on 9/23/2015.
  */
 public class TestRestWithHttpComponentRoute extends RouteBuilder {

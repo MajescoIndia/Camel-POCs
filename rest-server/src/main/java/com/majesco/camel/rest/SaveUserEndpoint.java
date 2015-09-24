@@ -10,6 +10,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
 /**
+ * JAX-RS annotated class that is used as a CXF resource to save UserDetails
+ *
  * Created by biplab661592 on 9/23/2015.
  */
 @Path("/")
@@ -19,6 +21,6 @@ public class SaveUserEndpoint {
     @Consumes("application/json")
     @Produces("application/json")
     public Response saveUser(UserDetails userDetails){
-        return null;
+        return null; // actual response will be sent from Camel Route
     }
 }

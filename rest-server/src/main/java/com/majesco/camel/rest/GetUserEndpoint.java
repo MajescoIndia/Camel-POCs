@@ -6,6 +6,8 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Response;
 
 /**
+ * JAX-RS annotated class that is used as a CXF resource to get UserDetails
+ *
  * Created by biplab661592 on 9/23/2015.
  */
 @Path("/")
@@ -13,6 +15,6 @@ public class GetUserEndpoint {
 
     @GET
     public Response getUser(@QueryParam("userName") String userName) {
-        return null;
+        return null; // actual response will be sent from Camel Route
     }
 }
