@@ -1,9 +1,9 @@
 package com.majesco.camel.route;
 
 import org.apache.camel.Exchange;
-import org.apache.camel.LoggingLevel;
+import org.apache.camel.ExchangePattern;
+import org.apache.camel.Processor;
 import org.apache.camel.builder.RouteBuilder;
-import org.apache.camel.component.cxf.common.message.CxfConstants;
 import org.apache.camel.component.jackson.JacksonDataFormat;
 
 /**
@@ -33,8 +33,15 @@ public class TestRestWithHttpComponentRoute extends RouteBuilder {
                 .to("http://localhost:8080/rest-server/cxf/rest/user/save");*/
 
         from("direct:cxfrsRESTcall")
-                .setHeader(CxfConstants.OPERATION_NAME, simple("getUserDetails"))
+                .setExchangePattern(ExchangePattern.InOut)
+                //.setHeader(CxfConstants.OPERATION_NAME, simple("getUserDetails"))
+                .setHeader(Exchange.HTTP_METHOD, simple("GET"))
                 .to("cxfrs:bean:getUserDetailsRESTClient")
-                .log(LoggingLevel.INFO, "===============================${body}");
+                .process(new Processor() {
+                    @Override
+                    public void process(Exchange exchange) throws Exception {
+                        System.out.println(exchange.getIn().getBody(String.class));
+                    }
+                });
     }
 }

@@ -26,6 +26,6 @@
 
 
     <cxf:rsClient id="getUserDetailsRESTClient"
-                  address="http://localhost:8080/rest-server/cxf/rest/user/get"
-                  serviceClass="com.majesco.camel.rest.GetUserEndpoint"/>
+                  address="http://localhost:8080/rest-server/cxf/rest/user/get"/>
+                  <!--serviceClass="com.majesco.camel.rest.GetUserEndpoint"/>-->
     </beans>
