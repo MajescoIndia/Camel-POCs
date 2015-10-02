@@ -1,7 +1,6 @@
 package com.majesco.camel.bean.processor;
 
 import org.apache.camel.Body;
-import org.apache.camel.Exchange;
 import org.springframework.stereotype.Component;
 
 import javax.ws.rs.core.Response;
@@ -12,6 +11,7 @@ import javax.ws.rs.core.Response;
 @Component("userProcessor")
 public class UserProcessor {
     public Response convertToResponse (@Body String body) {
+        System.out.println("IN Proccessor -------- " + body );
         return Response.status(200).entity(body).build();
     }
 }
