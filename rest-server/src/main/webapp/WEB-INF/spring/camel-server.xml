@@ -5,15 +5,18 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
                            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
                            http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+    <import resource="./camel-amq.xml"/>
 
     <bean id="saveUserRoute" class="com.majesco.camel.route.SaveUserRoute"/>
     <bean id="getUserRoute" class="com.majesco.camel.route.GetUserRoute"/>
+    <bean id="timerToJmsRoute" class="com.majesco.camel.route.TimerJmsProducerRoute"/>
 
     <camel:camelContext id="camel-server">
         <camel:propertyPlaceholder id="properties" location="classpath:camel.properties"/>
         <camel:jmxAgent id="agent" createConnector="true"/>
         <camel:routeBuilder ref="saveUserRoute"/>
         <camel:routeBuilder ref="getUserRoute"/>
+        <camel:routeBuilder ref="timerToJmsRoute"/>
     </camel:camelContext>
 
 </beans>
