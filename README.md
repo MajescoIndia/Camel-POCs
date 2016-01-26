@@ -1,5 +1,5 @@
 ![Camel Logo](https://github.com/MajescoIndia/Camel-POCs/blob/master/img/Apache-camel-logo.png)
-###Introduction
+###Introduction To Camel
 
 Camel is an Opensource([Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0)) integration framework, routing and mediation engine written in Java. It provides a complete implementation of all known [enterprise integration patterns](http://www.enterpriseintegrationpatterns.com/).
 
