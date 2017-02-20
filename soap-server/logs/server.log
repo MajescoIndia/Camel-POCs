@@ -1,0 +1,20 @@
+#logback.classic pattern: %d{HH:mm:ss.SSS} [%thread] %-5level %logger{40} - %msg%n
+11:01:51.769 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization started
+11:01:51.863 [localhost-startStop-1] INFO  o.s.w.c.support.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Fri Feb 10 11:01:51 IST 2017]; root of context hierarchy
+11:01:51.894 [localhost-startStop-1] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/spring.xml]
+11:01:52.162 [localhost-startStop-1] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/camel-server.xml]
+11:01:53.846 [localhost-startStop-1] INFO  o.a.c.c.x.AbstractCamelContextFactoryBean - JMXAgent enabled: CamelJMXAgent[usePlatformMBeanServer=true, createConnector=true, statisticsLevel=All, onlyRegisterProcessorWithCustomId=false, registerNewRoutes=true, includeHostName=false, mask=false]
+11:01:53.936 [localhost-startStop-1] INFO  o.a.c.i.converter.DefaultTypeConverter - Loaded 197 type converters
+11:01:54.438 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: Root WebApplicationContext: startup date [Fri Feb 10 11:01:51 IST 2017]; root of context hierarchy
+11:01:54.472 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: Root WebApplicationContext: startup date [Fri Feb 10 11:01:51 IST 2017]; root of context hierarchy
+11:01:54.524 [localhost-startStop-1] INFO  o.apache.camel.spring.SpringCamelContext - Apache Camel 2.14.0 (CamelContext: camel-server) is starting
+11:01:54.524 [localhost-startStop-1] INFO  o.a.c.m.ManagedManagementStrategy - JMX is enabled
+11:01:54.619 [Camel Thread #1 - Camel Thread #0 - JMXConnector: service:jmx:rmi:///jndi/rmi://DIN19000092:1099/jmxrmi/camel] INFO  o.a.c.management.DefaultManagementAgent - JMX Connector thread started and listening at: service:jmx:rmi:///jndi/rmi://DIN19000092:1099/jmxrmi/camel
+11:01:55.124 [localhost-startStop-1] INFO  o.apache.camel.spring.SpringCamelContext - AllowUseOriginalMessage is enabled. If access to the original message is not needed, then its recommended to turn this option off as it may improve performance.
+11:01:55.124 [localhost-startStop-1] INFO  o.apache.camel.spring.SpringCamelContext - StreamCaching is not in use. If using streams then its recommended to enable stream caching. See more details at http://camel.apache.org/stream-caching.html
+11:01:55.186 [localhost-startStop-1] INFO  o.a.c.w.s.f.ReflectionServiceFactoryBean - Creating Service {http://www.webserviceX.NET}GlobalWeatherSoapService from class net.webservicex.GlobalWeatherSoap
+11:01:55.718 [localhost-startStop-1] INFO  org.apache.cxf.endpoint.ServerImpl - Setting the server's publish address to be /samplesoap
+11:01:55.784 [localhost-startStop-1] INFO  o.apache.camel.spring.SpringCamelContext - Route: route1 started and consuming from: Endpoint[cxf://bean:weatherSoap]
+11:01:55.785 [localhost-startStop-1] INFO  o.apache.camel.spring.SpringCamelContext - Total 1 routes, of which 1 is started.
+11:01:55.787 [localhost-startStop-1] INFO  o.apache.camel.spring.SpringCamelContext - Apache Camel 2.14.0 (CamelContext: camel-server) started in 1.262 seconds
+11:01:55.792 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 4020 ms

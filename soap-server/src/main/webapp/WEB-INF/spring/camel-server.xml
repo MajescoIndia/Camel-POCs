@@ -2,22 +2,19 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:camel="http://camel.apache.org/schema/spring"
+       xmlns:cxf="http://camel.apache.org/schema/cxf"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
                            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                           http://camel.apache.org/schema/cxf http://camel.apache.org/schema/cxf/camel-cxf.xsd
                            http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
-    <import resource="./camel-amq.xml"/>
 
-    <bean id="saveUserRoute" class="com.majesco.camel.route.SaveUserRoute"/>
-    <bean id="getUserRoute" class="com.majesco.camel.route.GetUserRoute"/>
-    <bean id="timerToJmsRoute" class="com.majesco.camel.route.TimerJmsProducerRoute"/>
-    <bean id="sampleSoapRoute" class="com.majesco.camel.route.SampleSoapRoute"/>
+    <bean id="sampleSoapRoute" class="com.biplab.camel.route.SampleSoapRoute"/>
+
+    <cxf:cxfEndpoint id="weatherSoap" serviceClass="net.webservicex.GlobalWeatherSoap" address="/samplesoap"/>
 
     <camel:camelContext id="camel-server">
-        <camel:propertyPlaceholder id="properties" location="classpath:camel.properties"/>
+        <!--<camel:propertyPlaceholder id="properties" location="classpath:camel.properties"/>-->
         <camel:jmxAgent id="agent" createConnector="true"/>
-        <camel:routeBuilder ref="saveUserRoute"/>
-        <camel:routeBuilder ref="getUserRoute"/>
-        <!--<camel:routeBuilder ref="timerToJmsRoute"/>-->
         <camel:routeBuilder ref="sampleSoapRoute"/>
     </camel:camelContext>
 

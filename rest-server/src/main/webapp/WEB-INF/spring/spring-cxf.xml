@@ -45,4 +45,6 @@
             <ref bean="validationExceptionMapper"/>
         </cxf:providers>
     </cxf:rsServer>
+
+    <cxf:cxfEndpoint id="weatherSoap" serviceClass="net.webservicex.GlobalWeatherSoap" address="/samplesoap"/>
     </beans>
